@@ -25,7 +25,7 @@ fn fragment(
     let wave_speed = 0.07;
 
     var amplitude = 1.0;
-    var frequency = 10.0;
+    var frequency = 20.0;
     
     var val = 0.0;
     var last_wave_derivative = 0.0;
@@ -47,7 +47,7 @@ fn fragment(
     if val < -1.5 {
         return dark_color;
     }
-    else if val < 0 {
+    else if val < 0.0 {
         return medium_dark_color;
     }
     else if val < 1.7 {
