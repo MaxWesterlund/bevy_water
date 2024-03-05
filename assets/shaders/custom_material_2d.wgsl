@@ -11,7 +11,7 @@
 fn fragment(
     mesh: VertexOutput,
 ) -> @location(0) vec4<f32> {
-    let resolution = 128.0;
+    let resolution = 64.0;
 
     let uv = mesh.uv;
 
@@ -21,11 +21,13 @@ fn fragment(
         ratio * floor(uv.y / ratio)
     );
 
-    let wave_amount = 15;
+    let wave_amount = 30;
     let wave_speed = 0.07;
 
     var amplitude = 1.0;
-    var frequency = 20.0;
+    var frequency = 10.0;
+
+    var total_amplitude = 0.0;
     
     var val = 0.0;
     var last_wave_derivative = 0.0;
@@ -40,17 +42,22 @@ fn fragment(
 
         last_wave_derivative = cos(content);
 
+        total_amplitude += amplitude;
+
         amplitude *= 0.82;
         frequency *= 1.18;
     }
 
-    if val < -1.5 {
+    val /= total_amplitude * 2.0;
+    val += 0.5;
+
+    if val < 0.3 {
         return dark_color;
     }
-    else if val < 0.0 {
+    else if val < 0.5 {
         return medium_dark_color;
     }
-    else if val < 1.7 {
+    else if val < 0.7 {
         return medium_light_color;
     }
     else {

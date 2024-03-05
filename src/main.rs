@@ -11,7 +11,7 @@ use bevy::{
 fn main() {
     App::new()
         .insert_resource(ClearColor(
-            Color::hex("d0baa9").unwrap()
+            Color::hex("372f3a").unwrap()
         ))
         .add_plugins((
             DefaultPlugins,
@@ -53,10 +53,10 @@ fn setup(
         mesh: meshes.add(Rectangle::default()).into(),
         transform: Transform::default().with_scale(Vec3::splat(256.0)),
         material: materials.add(CustomMaterial {
-            light_color: Color::hex("b9d4b4").unwrap(),
-            medium_light_color: Color::hex("6aae9d").unwrap(),
-            medium_dark_color: Color::hex("355d69").unwrap(),
-            dark_color: Color::hex("37364e").unwrap(),
+            light_color: Color::hex("6a9395").unwrap(),
+            medium_light_color: Color::hex("5d7680").unwrap(),
+            medium_dark_color: Color::hex("545e72").unwrap(),
+            dark_color: Color::hex("464459").unwrap(),
             time: 0.0,
         }),
         ..default()
